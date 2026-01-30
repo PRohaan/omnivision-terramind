@@ -4,7 +4,10 @@
 It showcases TerraMind’s **any‑to‑any generation** across key modalities and adds **ground truth comparison, per‑tile metrics, and interpretable error maps**, so results are measurable—not just qualitative.
 
 **Team:** Omnivision  
-**Contacts:** rohaanrasool110@gmail.com • tamseelfatimah245@gmail.com • solehsafida@gmail.com  
+**Members:** Rohaan Rasool • Syeda Tamseel Fatimah • Safida  
+**Affiliation:** Bachelor's in Space Science, Institute of Space Technology (IST), Islamabad  
+**Primary contact:** rohaanrasool110@gmail.com  
+**Additional contacts:** tamseelfatimah245@gmail.com • solehsafida@gmail.com    
 **Demo video:** https://www.youtube.com/watch?v=yhdLLpik4a0  
 **Challenge:** IBM/ESA Geospatial — BlueSky Challenge (Hugging Face Community Submission)
 
