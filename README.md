@@ -1,4 +1,4 @@
-# Omnivision 🛰️🌍 - TerraMind Multi‑Modal Earth Observation Studio (Generation + Evaluation)
+# Omnivision 🛰️🌍 - TerraMind Multi‑Modal Earth Observation Studio
 
 **Omnivision** is an interactive Earth‑observation “lab” built on the **TerraMind** geospatial foundation model (via **TerraTorch**).  
 It showcases TerraMind’s **any‑to‑any generation** across key modalities and adds **ground truth comparison, per‑tile metrics, and interpretable error maps**, so results are measurable—not just qualitative.
