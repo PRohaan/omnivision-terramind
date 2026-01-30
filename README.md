@@ -73,9 +73,9 @@ FULL_MODEL_REGISTRY.build(
 
 Aligned with the official TerraMind notebooks:
 
-- **standardize=True** applies the correct pretraining normalization internally (no manual normalization required).
-- Inputs are aligned to TerraMind’s example tile size **224×224** using a selectable resize strategy.
-- **LULC outputs (logits)** are converted to labels via **argmax** for evaluation and visualization.
+* **standardize=True** applies the correct pretraining normalization internally (no manual normalization required).
+* Inputs are aligned to TerraMind’s example tile size **224×224** using a selectable resize strategy.
+* **LULC outputs (logits)** are converted to labels via **argmax** for evaluation and visualization.
 
 ---
 
@@ -107,7 +107,7 @@ pip install -r requirements.txt
 
 If `pip install torch` fails or you need GPU support, install PyTorch first from:
 
-https://pytorch.org/get-started/locally/
+[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
 
 Then run:
 
@@ -135,14 +135,14 @@ This repository includes an `examples/` folder (used for notebook‑style demos 
 
 ### 1) Examples Folder Mode (recommended for evaluation)
 
-- Select a modality + example file
-- Generate target modalities
-- Omnivision loads matching ground truth and computes per‑tile metrics
+* Select a modality + example file
+* Generate target modalities
+* Omnivision loads matching ground truth and computes per‑tile metrics
 
 ### 2) Upload GeoTIFF Mode
 
-- Useful for experimentation with user data
-- Ground truth comparison is typically not available unless paired reference data is supplied
+* Useful for experimentation with user data
+* Ground truth comparison is typically not available unless paired reference data is supplied
 
 If you prefer downloading examples instead of using the committed folder:
 
@@ -162,19 +162,19 @@ Omnivision computes metrics **per tile** when Ground Truth is available (Example
 
 Computed on **raw arrays** (not display‑normalized):
 
-- MAE (Mean Absolute Error)
-- RMSE (Root Mean Square Error)
-- Pearson correlation (**r**) (structure similarity)
-- SAM (Spectral Angle Mapper, radians; for multi‑band outputs)
+* MAE (Mean Absolute Error)
+* RMSE (Root Mean Square Error)
+* Pearson correlation (**r**) (structure similarity)
+* SAM (Spectral Angle Mapper, radians; for multi‑band outputs)
 
 ### Categorical Modality (LULC)
 
-- Predicted logits → label map via **argmax**
+* Predicted logits → label map via **argmax**
 
 **Metrics:**
 
-- Overall accuracy
-- Macro‑F1 (more robust under class imbalance)
+* Overall accuracy
+* Macro‑F1 (more robust under class imbalance)
 
 ---
 
@@ -182,8 +182,8 @@ Computed on **raw arrays** (not display‑normalized):
 
 A visual mismatch map is shown:
 
-- Dark / transparent = low error
-- Bright red = high error
+* Dark / transparent = low error
+* Bright red = high error
 
 A legend is displayed in‑app for interpretation.
 
@@ -195,37 +195,37 @@ A legend is displayed in‑app for interpretation.
 
 Controls the number of iterative refinement steps used by the diffusion sampler:
 
-- Lower = faster, usually less detailed
-- Higher = slower, sometimes better detail
-- Default **10** matches the official TerraMind notebooks
+* Lower = faster, usually less detailed
+* Higher = slower, sometimes better detail
+* Default **10** matches the official TerraMind notebooks
 
 ## Resize Mode
 
 Controls how input data is aligned to **224×224**:
 
-- `center_crop_then_resize` (recommended): crop if large, resize if small
-- `resize`: always resize (can distort)
-- `center_crop`: crop only (fails if smaller than 224)
+* `center_crop_then_resize` (recommended): crop if large, resize if small
+* `resize`: always resize (can distort)
+* `center_crop`: crop only (fails if smaller than 224)
 
 ---
 
 # Repository Contents
 
-- `app.py` — Streamlit UI (landing page + dashboard + evaluation UI)
-- `omnivision_engine.py` — TerraMind / TerraTorch model wrapper and modality rendering
-- `download_examples.py` — downloads example tiles (if needed)
-- `requirements.txt` — dependencies for reproducibility
-- `assets/` — screenshots used in README and submission
-- `examples/` — example tiles for evaluation mode
-- `earth_bg.jpeg` — optional background image (used if present)
+* `app.py` — Streamlit UI (landing page + dashboard + evaluation UI)
+* `omnivision_engine.py` — TerraMind / TerraTorch model wrapper and modality rendering
+* `download_examples.py` — downloads example tiles (if needed)
+* `requirements.txt` — dependencies for reproducibility
+* `assets/` — screenshots used in README and submission
+* `examples/` — example tiles for evaluation mode
+* `earth_bg.jpeg` — optional background image (used if present)
 
 ---
 
 # Credits
 
-- **TerraMind model & notebooks:** https://github.com/IBM/terramind
-- **TerraTorch registry & utilities:** https://github.com/IBM/terratorch
-- **BlueSky Challenge Space:** https://huggingface.co/spaces/ibm-esa-geospatial/challenge
+* **TerraMind model & notebooks:** [https://github.com/IBM/terramind](https://github.com/IBM/terramind)
+* **TerraTorch registry & utilities:** [https://github.com/IBM/terratorch](https://github.com/IBM/terratorch)
+* **BlueSky Challenge Space:** [https://huggingface.co/spaces/ibm-esa-geospatial/challenge](https://huggingface.co/spaces/ibm-esa-geospatial/challenge)
 
 ---
 
@@ -237,7 +237,6 @@ Released under the **MIT License** (see `LICENSE`).
 
 # Contact
 
-- rohaanrasool110@gmail.com
-- tamseelfatimah245@gmail.com
-- solehsafida@gmail.com
-
+* [rohaanrasool110@gmail.com](mailto:rohaanrasool110@gmail.com)
+* [tamseelfatimah245@gmail.com](mailto:tamseelfatimah245@gmail.com)
+* [solehsafida@gmail.com](mailto:solehsafida@gmail.com)
