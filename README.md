@@ -69,102 +69,175 @@ FULL_MODEL_REGISTRY.build(
   pretrained=True,
   standardize=True
 )
-Installation
-1) Create a virtual environment (recommended)
-Windows (PowerShell):
+# Key Design Decisions
 
-PowerShell
+Aligned with the official TerraMind notebooks:
 
+- **standardize=True** applies the correct pretraining normalization internally (no manual normalization required).
+- Inputs are aligned to TerraMind’s example tile size **224×224** using a selectable resize strategy.
+- **LULC outputs (logits)** are converted to labels via **argmax** for evaluation and visualization.
+
+---
+
+# Installation
+
+## 1) Create a virtual environment (recommended)
+
+### Windows (PowerShell)
+
+```powershell
 python -m venv .venv
 .venv\Scripts\activate
-Linux/macOS:
+```
 
-Bash
+### Linux/macOS
 
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-2) Install dependencies
-Bash
+```
 
+## 2) Install dependencies
+
+```bash
 pip install -r requirements.txt
-PyTorch note (important):
-If pip install torch fails or you need GPU support, install PyTorch first from:
+```
+
+### PyTorch note (important)
+
+If `pip install torch` fails or you need GPU support, install PyTorch first from:
+
 https://pytorch.org/get-started/locally/
-then run pip install -r requirements.txt again.
 
-Run the app
-Bash
+Then run:
 
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Run the App
+
+```bash
 streamlit run app.py
-Then open the local URL Streamlit prints (usually http://localhost:8501).
+```
 
-Examples dataset
-This repository includes an examples/ folder (used for notebook-style demos and evaluation).
+Then open the local URL Streamlit prints (usually `http://localhost:8501`).
 
-Omnivision supports two modes:
+---
 
-Examples Folder mode (recommended for evaluation)
-Select a modality + example file
-Generate target modalities
-Omnivision loads matching ground truth and computes per‑tile metrics
-Upload GeoTIFF mode
-Useful for experimentation with user data
-Ground truth comparison is typically not available unless paired reference data is supplied
+# Examples Dataset
+
+This repository includes an `examples/` folder (used for notebook‑style demos and evaluation).
+
+## Omnivision Supports Two Modes
+
+### 1) Examples Folder Mode (recommended for evaluation)
+
+- Select a modality + example file
+- Generate target modalities
+- Omnivision loads matching ground truth and computes per‑tile metrics
+
+### 2) Upload GeoTIFF Mode
+
+- Useful for experimentation with user data
+- Ground truth comparison is typically not available unless paired reference data is supplied
+
 If you prefer downloading examples instead of using the committed folder:
 
-Bash
-
+```bash
 python download_examples.py
-Evaluation methodology (how “accuracy” is computed)
-Omnivision computes metrics per tile when Ground Truth is available (Examples mode).
+```
 
-Continuous modalities (S2/S1/DEM/NDVI)
-Computed on raw arrays (not display-normalized):
+---
 
-MAE (Mean Absolute Error)
-RMSE (Root Mean Square Error)
-Pearson correlation (r) (structure similarity)
-SAM (Spectral Angle Mapper, radians; for multi-band outputs)
-Categorical modality (LULC)
-Predicted logits → label map via argmax
-Metrics:
-Overall accuracy
-Macro‑F1 (more robust under class imbalance)
-Error visualization
+# Evaluation Methodology
+
+## How “Accuracy” Is Computed
+
+Omnivision computes metrics **per tile** when Ground Truth is available (Examples mode).
+
+### Continuous Modalities (S2 / S1 / DEM / NDVI)
+
+Computed on **raw arrays** (not display‑normalized):
+
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Square Error)
+- Pearson correlation (**r**) (structure similarity)
+- SAM (Spectral Angle Mapper, radians; for multi‑band outputs)
+
+### Categorical Modality (LULC)
+
+- Predicted logits → label map via **argmax**
+
+**Metrics:**
+
+- Overall accuracy
+- Macro‑F1 (more robust under class imbalance)
+
+---
+
+# Error Visualization
+
 A visual mismatch map is shown:
 
-Dark/transparent = low error
-Bright red = high error
-A legend is displayed in-app for interpretation.
-UI controls explained
-Diffusion Steps
-Controls the number of iterative refinement steps used by the diffusion sampler.
+- Dark / transparent = low error
+- Bright red = high error
 
-Lower = faster, usually less detailed
-Higher = slower, sometimes better detail
-Default 10 matches the official TerraMind notebooks
-Resize Mode
-Controls how input data is aligned to 224×224:
+A legend is displayed in‑app for interpretation.
 
-center_crop_then_resize (recommended): crop if large, resize if small
-resize: always resize (can distort)
-center_crop: crop only (fails if smaller than 224)
-Repository contents
-app.py — Streamlit UI (landing page + dashboard + evaluation UI)
-omnivision_engine.py — TerraMind/TerraTorch model wrapper and modality rendering
-download_examples.py — downloads example tiles (if needed)
-requirements.txt — dependencies for reproducibility
-assets/ — screenshots used in README and submission
-examples/ — example tiles for evaluation mode
-earth_bg.jpeg — optional background image (used if present)
-Credits
-TerraMind model & notebooks: https://github.com/IBM/terramind
-TerraTorch registry & utilities: https://github.com/IBM/terratorch
-BlueSky Challenge Space: https://huggingface.co/spaces/ibm-esa-geospatial/challenge
-License
-Released under the MIT License (see LICENSE).
+---
 
-Contact
-rohaanrasool110@gmail.com
-tamseelfatimah245@gmail.com
-solehsafida@gmail.com
+# UI Controls Explained
+
+## Diffusion Steps
+
+Controls the number of iterative refinement steps used by the diffusion sampler:
+
+- Lower = faster, usually less detailed
+- Higher = slower, sometimes better detail
+- Default **10** matches the official TerraMind notebooks
+
+## Resize Mode
+
+Controls how input data is aligned to **224×224**:
+
+- `center_crop_then_resize` (recommended): crop if large, resize if small
+- `resize`: always resize (can distort)
+- `center_crop`: crop only (fails if smaller than 224)
+
+---
+
+# Repository Contents
+
+- `app.py` — Streamlit UI (landing page + dashboard + evaluation UI)
+- `omnivision_engine.py` — TerraMind / TerraTorch model wrapper and modality rendering
+- `download_examples.py` — downloads example tiles (if needed)
+- `requirements.txt` — dependencies for reproducibility
+- `assets/` — screenshots used in README and submission
+- `examples/` — example tiles for evaluation mode
+- `earth_bg.jpeg` — optional background image (used if present)
+
+---
+
+# Credits
+
+- **TerraMind model & notebooks:** https://github.com/IBM/terramind
+- **TerraTorch registry & utilities:** https://github.com/IBM/terratorch
+- **BlueSky Challenge Space:** https://huggingface.co/spaces/ibm-esa-geospatial/challenge
+
+---
+
+# License
+
+Released under the **MIT License** (see `LICENSE`).
+
+---
+
+# Contact
+
+- rohaanrasool110@gmail.com
+- tamseelfatimah245@gmail.com
+- solehsafida@gmail.com
+
