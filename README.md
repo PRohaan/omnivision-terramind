@@ -11,7 +11,7 @@ It showcases TerraMind’s **any‑to‑any generation** across key modalities a
 ---
 
 ## Why it matters
-Earth observation workflows increasingly require multi‑sensor data (Optical, SAR, DEM, vegetation indices, land cover). However, working across these modalities is slow and fragmented—different formats, different preprocessing, and limited tools to both *generate* and *validate* derived layers.
+Earth observation workflows increasingly require multi‑sensor data (Optical, SAR, DEM, vegetation indices, land cover). However, working across these modalities is slow and fragmented—different formats, different preprocessing, and limited tools to both **generate** and **validate** derived layers.
 
 **Omnivision** provides a modern, reproducible interface to explore TerraMind’s multi‑modal generation and to **evaluate outputs against ground truth** on the provided example tiles.
 
@@ -20,14 +20,14 @@ Earth observation workflows increasingly require multi‑sensor data (Optical, S
 ## What Omnivision does
 ### Core capabilities
 - **Any‑to‑any generation** with TerraMind (select input modality → generate multiple output modalities)
-- **Examples mode**: automatically loads matching **Ground Truth** rasters when available (same file id across modalities)
-- **Side‑by‑side comparison**: **Input | Generated | Ground Truth**
+- **Examples mode:** automatically loads matching **Ground Truth** rasters when available (same file id across modalities)
+- **Side‑by‑side comparison:** **Input | Generated | Ground Truth**
 - **Per‑tile evaluation metrics**
   - Continuous modalities: **MAE, RMSE, Pearson r, SAM**
   - Categorical (LULC): **Overall Accuracy, Macro‑F1**
 - **Error visualization** (mismatch map) with an on‑screen legend (low→high error)
 - **Download outputs** (PNG visualization) directly from the UI
-- **Animated background fallback** (if no local background image is present)
+- **Background handling:** uses `earth_bg.jpeg` if present; otherwise falls back to an animated background
 
 ---
 
@@ -40,14 +40,21 @@ Earth observation workflows increasingly require multi‑sensor data (Optical, S
 
 ---
 
-## Screenshots
-> Add these files to `assets/` (already included in this repository).
+## Screenshots (from `assets/`)
 
-![Landing](assets/landing_page.png)  
-![Comparison](assets/comparison.png)  
-![Metrics](assets/metrics.png)
-![Visual Error](assets/visual_error.png)
-![Lagend](assets/lagend.png)
+![Landing Page](assets/landing_page.PNG)
+
+### Comparison (Input vs Generated vs Ground Truth)
+![Comparison](assets/comparison.PNG)
+
+### Metrics + Error Interpretation
+![Metrics](assets/metrics.PNG)
+
+### Error Map (Mismatch Visualization)
+![Error Visualization](assets/visual_error.PNG)
+
+### Error Legend
+![Legend](assets/lagend.PNG)
 
 ---
 
