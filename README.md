@@ -69,6 +69,8 @@ FULL_MODEL_REGISTRY.build(
   pretrained=True,
   standardize=True
 )
+
+```
 # Key Design Decisions
 
 Aligned with the official TerraMind notebooks:
@@ -88,8 +90,6 @@ Aligned with the official TerraMind notebooks:
 ```powershell
 python -m venv .venv
 .venv\Scripts\activate
-```
-
 ### Linux/macOS
 
 ```bash
