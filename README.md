@@ -238,8 +238,11 @@ Released under the **MIT License** (see `LICENSE`).
 
 ---
 
-# Contact
+## Contact
+For questions, collaboration, or BlueSky follow‑up:
 
-* [rohaanrasool110@gmail.com](mailto:rohaanrasool110@gmail.com)
-* [tamseelfatimah245@gmail.com](mailto:tamseelfatimah245@gmail.com)
-* [solehsafida@gmail.com](mailto:solehsafida@gmail.com)
+- **Rohaan Rasool** — rohaanrasool110@gmail.com  
+- **Syeda Tamseel Fatimah** — tamseelfatimah245@gmail.com  
+- **Safida** — solehsafida@gmail.com  
+
+**Affiliation:** Bachelor's in Space Science, Institute of Space Technology (IST), Islamabad  
